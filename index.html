@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog API</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="app.css" type="text/css">
+</head>
+
+<body>
+    <section>
+        <h1>Nothing better than dogs!</h1>
+        <form action="get" id="get-qty">
+            <label for="qty">Get some doggies!</label>
+            <input id="qty" type="number" name="qty" min="3" max="50" placeholder="how many pups?">
+            <button type="submit">Search</button>
+        </form>
+
+        <div id="display" class="container"></div>
+    </section>
+    <script src="index.js"></script>
+</body>
+</html>

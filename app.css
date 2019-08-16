@@ -1,0 +1,14 @@
+ul {
+    padding: 18px;
+    width: 200px;
+    height: auto;
+    list-style: none;
+}
+ul li {
+    margin: 8px;
+}
+
+.container {
+    width: 100%;
+}
+
