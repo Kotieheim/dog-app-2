@@ -11,11 +11,17 @@
 
 <body>
     <section>
-        <h1>Nothing better than dogs!</h1>
+        <h1>Get a random number of dogs OR random picture by breed</h1>
         <form action="get" id="get-qty">
-            <label for="qty">Get some doggies!</label>
+            <label for="qty">Get some doggies by number! (3 - 50 to be exact)</label>
             <input id="qty" type="number" name="qty" min="3" max="50" placeholder="how many pups?">
             <button type="submit">Search</button>
+        </form>
+        <h2></h2>
+        <form action="get" id="get-breed">
+            <label for="breed">Search pups by breed! (all lowercase)</label>
+            <input type="text" id="breed" name="breed" placeholder="labrador">
+            <button type="submit">Search em</button>
         </form>
 
         <div id="display" class="container"></div>

@@ -27,7 +27,7 @@ function multipleDogs(qty) {
         .then(resultsJson => {
             displayListings(resultsJson.message);
         })
-        .catch(err => alert("whoa"));
+        .catch(err => alert("whoa, that's not right"));
 }
 
 function handleQtySubmit() {
@@ -38,6 +38,45 @@ function handleQtySubmit() {
     })
 }
 
+function displayBreedImage(imgUrl) {
+    $('#display').html(imgString(imgUrl));
+    $('.container').addClass('max-width');
+}
+
+function displayErrorMessage(errorStr) {
+    const errMessage = `<h2>${errorStr}</h2>`
+    $('#display').html(errMessage);
+}
+
+function fetchBreed(breed) {
+    if (breed) {
+        fetch (`https://dog.ceo/api/breed/${breed}/images/random`)
+            .then(result => result.json())
+            .then(resultJson => {
+                console.log(resultJson);
+                if (resultJson.status === "error") {
+                    displayErrorMessage(resultJson.message);
+                } else {
+                    displayBreedImage(resultJson.message);
+                }
+            })
+            .catch(err => displayErrorMessage(err));
+    } else {
+        displayErrorMessage("Need to enter dog breed! (remember, lowercase)");
+    }
+}
+
+function handleBreedSubmit() {
+    $('#get-breed').on('submit', function(e) {
+        e.preventDefault();
+        const breed = $('#breed').val();
+        fetchBreed(breed);
+        $('#breed').val("");
+    })
+}
+
+
 $(function() {
     handleQtySubmit();
+    handleBreedSubmit();
 })
